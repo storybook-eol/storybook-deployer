@@ -19,7 +19,7 @@ shell.mkdir('.out');
 // run our compile script
 console.log('=> Building storybook');
 if (packageJson.scripts['build-storybook']) {
-  publishUtils.exec('npm run build-storybook');
+  publishUtils.exec('npm run build-storybook -- -o .out');
 } else {
   publishUtils.exec('node ./node_modules/.bin/build-storybook -o .out');
 }
