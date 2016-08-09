@@ -5,7 +5,10 @@ var publishUtils = require('../src/utils');
 var path = require('path');
 var packageJson = require(path.resolve('./package.json'));
 
+var OUTPUT_DIR = 'out' + Math.ceil(Math.random() * 9999);
+
 // get GIT url
+console.log('=> Getting the git remote URL');
 var GIT_URL = publishUtils.exec('git config --get remote.origin.url');
 if (!GIT_URL) {
   console.log('This project is not configured with a remote git repo');
@@ -19,13 +22,13 @@ shell.mkdir('.out');
 // run our compile script
 console.log('=> Building storybook');
 if (packageJson.scripts['build-storybook']) {
-  publishUtils.exec('npm run build-storybook -- -o .out');
+  publishUtils.exec('npm run build-storybook -- -o ' + OUTPUT_DIR);
 } else {
-  publishUtils.exec('node ./node_modules/.bin/build-storybook -o .out');
+  publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
 }
 
 // go to the out directory and create a *new* Git repo
-shell.cd('.out');
+shell.cd(OUTPUT_DIR);
 publishUtils.exec('git init');
 
 // inside this git repo we'll pretend to be a new user
@@ -44,7 +47,7 @@ publishUtils.exec('git commit -m "Deploy Storybook to GitHub Pages"');
 console.log('=> Deploying storybook');
 publishUtils.exec('git push --force --quiet ' + GIT_URL + ' master:gh-pages')
 shell.cd('..');
-shell.rm('-rf', '.out');
+shell.rm('-rf', OUTPUT_DIR);
 
 console.log();
 console.log('=> Storybook deployed to: ' + publishUtils.getGHPagesUrl(GIT_URL));
