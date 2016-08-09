@@ -16,8 +16,8 @@ if (!GIT_URL) {
 }
 
 // clear and re-create the out directory
-shell.rm('-rf', '.out');
-shell.mkdir('.out');
+shell.rm('-rf', OUTPUT_DIR);
+shell.mkdir(OUTPUT_DIR);
 
 // run our compile script
 console.log('=> Building storybook');
