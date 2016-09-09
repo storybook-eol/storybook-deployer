@@ -1,5 +1,10 @@
 # Change Log
 
+### v1.2.0
+09-Sep-2016
+
+* Add a trailing slash to the URL where it's the correct GH pages URL.
+
 ### v1.1.0
 08-Aug-2016
 
