@@ -18,6 +18,6 @@ module.exports.exec = function exec(command) {
 
 module.exports.getGHPagesUrl = function getGHPagesUrl(ghUrl) {
   var parsedUrl = parseGitUrl(ghUrl);
-  var ghPagesUrl = 'https://' + parsedUrl.owner + '.github.io/' + parsedUrl.name;
+  var ghPagesUrl = 'https://' + parsedUrl.owner + '.github.io/' + parsedUrl.name + '/';
   return ghPagesUrl;
 };
