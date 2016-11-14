@@ -24,7 +24,7 @@ console.log('=> Building storybook');
 if (packageJson.scripts['build-storybook']) {
   publishUtils.exec('npm run build-storybook -- -o ' + OUTPUT_DIR);
 } else {
-  publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+  publishUtils.exec('node ./node_modules/.bin/build-storybook -s static -o ' + OUTPUT_DIR);
 }
 
 // go to the out directory and create a *new* Git repo
