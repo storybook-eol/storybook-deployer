@@ -39,3 +39,26 @@ If you customize the build configuration with some additional params (like stati
 ```
 
 > Make sure to set the output directory as **`.out`**.
+
+### Custom deploy configuration
+
+If you want to customize Git username, email or commit message, add this to `package.json`:
+
+```json
+"storybook-deployer": {
+  "gitUsername": "Custom Username",
+  "gitEmail": "custom@email.com",
+  "commitMessage": "Deploy Storybook [skip ci]"
+}
+```
+
+It will override the default configuration:
+
+```js
+"storybook-deployer": {
+  "gitUsername": "GH Pages Bot",
+  "gitEmail": "hello@ghbot.com",
+  "commitMessage": "Deploy Storybook to GitHub Pages"
+}
+```
+

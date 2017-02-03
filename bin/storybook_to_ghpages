@@ -7,6 +7,14 @@ var packageJson = require(path.resolve('./package.json'));
 
 var OUTPUT_DIR = 'out' + Math.ceil(Math.random() * 9999);
 
+var defaultConfig = {
+  gitUsername: 'GH Pages Bot',
+  gitEmail: 'hello@ghbot.com',
+  commitMessage: 'Deploy Storybook to GitHub Pages'
+};
+
+var config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] || defaultConfig);
+
 // get GIT url
 console.log('=> Getting the git remote URL');
 var GIT_URL = publishUtils.exec('git config --get remote.origin.url');
@@ -32,13 +40,13 @@ shell.cd(OUTPUT_DIR);
 publishUtils.exec('git init');
 
 // inside this git repo we'll pretend to be a new user
-publishUtils.exec('git config user.name "GH Pages Bot"');
-publishUtils.exec('git config user.email "hello@ghbot.com"');
+publishUtils.exec('git config user.name ' + JSON.stringify(config.gitUsername));
+publishUtils.exec('git config user.email ' + JSON.stringify(config.gitEmail));
 
 // The first and only commit to this new Git repo contains all the
 // files present with the commit message "Deploy to GitHub Pages".
 publishUtils.exec('git add .');
-publishUtils.exec('git commit -m "Deploy Storybook to GitHub Pages"');
+publishUtils.exec('git commit -m ' + JSON.stringify(config.commitMessage));
 
 // Force push from the current repo's master branch to the remote
 // repo's gh-pages branch. (All previous history on the gh-pages branch
