@@ -43,6 +43,9 @@ publishUtils.exec('git init');
 publishUtils.exec('git config user.name ' + JSON.stringify(config.gitUsername));
 publishUtils.exec('git config user.email ' + JSON.stringify(config.gitEmail));
 
+// disable GPG signing
+publishUtils.exec('git config commit.gpgsign false');
+
 // The first and only commit to this new Git repo contains all the
 // files present with the commit message "Deploy to GitHub Pages".
 publishUtils.exec('git add .');
