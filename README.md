@@ -62,3 +62,9 @@ It will override the default configuration:
 }
 ```
 
+To deploy Storybook to a remote other than `origin`, pass a `--remote` flag to `npm run deploy-storybook`.  
+For example, to deploy to your `upstream` remote:
+
+```
+npm run deploy-storybook -- --remote=upstream
+```
