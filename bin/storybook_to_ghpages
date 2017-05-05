@@ -4,6 +4,7 @@ var shell = require('shelljs');
 var publishUtils = require('../src/utils');
 var path = require('path');
 var packageJson = require(path.resolve('./package.json'));
+var argv = require('yargs').argv;
 
 var OUTPUT_DIR = 'out' + Math.ceil(Math.random() * 9999);
 
@@ -15,9 +16,11 @@ var defaultConfig = {
 
 var config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] || defaultConfig);
 
+var GIT_REMOTE = argv['remote'] || 'origin';
+
 // get GIT url
 console.log('=> Getting the git remote URL');
-var GIT_URL = publishUtils.exec('git config --get remote.origin.url');
+var GIT_URL = publishUtils.exec(`git config --get remote.${GIT_REMOTE}.url`);
 if (!GIT_URL) {
   console.log('This project is not configured with a remote git repo');
   process.exit(-1);
