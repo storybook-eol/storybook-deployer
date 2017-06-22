@@ -17,6 +17,7 @@ var defaultConfig = {
 var config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] || defaultConfig);
 
 var GIT_REMOTE = argv['remote'] || 'origin';
+var TARGET_BRANCH = argv['branch'] || "gh-pages";
 
 // get GIT url
 console.log('=> Getting the git remote URL');
@@ -56,9 +57,16 @@ publishUtils.exec('git commit -m ' + JSON.stringify(config.commitMessage));
 // will be lost, since we are overwriting it.) We redirect any output to
 // /dev/null to hide any sensitive credential data that might otherwise be exposed.
 console.log('=> Deploying storybook');
-publishUtils.exec('git push --force --quiet ' + GIT_URL + ' master:gh-pages')
+publishUtils.exec('git push --force --quiet ' + GIT_URL + ' master:' + TARGET_BRANCH)
 shell.cd('..');
 shell.rm('-rf', OUTPUT_DIR);
 
 console.log();
-console.log('=> Storybook deployed to: ' + publishUtils.getGHPagesUrl(GIT_URL));
+if(TARGET_BRANCH !== 'gh-pages') {
+  var rawgit_url = GIT_URL.replace('github.com', 'rawgit.com').replace('.git', '/') +
+    TARGET_BRANCH + '/index.html';
+  console.log('=> Storybook deployed to: ' + rawgit_url);
+} else {
+  console.log('=> Storybook deployed to: ' + publishUtils.getGHPagesUrl(GIT_URL));
+}
+
