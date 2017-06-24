@@ -1,13 +1,13 @@
 {
-  "name": "@kadira/storybook-deployer",
-  "version": "1.2.0",
+  "name": "@storybook/storybook-deployer",
+  "version": "2.0.0",
   "description": "Deploy your storybook as a webapp.",
   "bin": {
     "storybook-to-ghpages": "./bin/storybook_to_ghpages"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kadirahq/storybook-deployer.git"
+    "url": "git+https://github.com/storybooks/storybook-deployer.git"
   },
   "keywords": [
     "storybook",
@@ -17,9 +17,9 @@
   "author": "Arunoda Susiripala <arunoda@kadira.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kadirahq/storybook-deployer/issues"
+    "url": "https://github.com/storybooks/storybook-deployer/issues"
   },
-  "homepage": "https://github.com/kadirahq/storybook-deployer#readme",
+  "homepage": "https://github.com/storybooks/storybook-deployer#readme",
   "dependencies": {
     "git-url-parse": "^6.0.2",
     "shelljs": "^0.7.0",
