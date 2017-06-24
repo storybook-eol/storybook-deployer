@@ -3,13 +3,13 @@ var parseGitUrl = require('git-url-parse');
 
 module.exports.exec = function exec(command) {
   console.log("   executing: " + command);
-  const options = { silent: true };
-  const ref = shell.exec(command, options);
+  var options = { silent: true };
+  var ref = shell.exec(command, options);
   if (ref.code === 0) {
    return ref.stdout.trim();
   }
 
-  const message =
+  var message =
     'Exec code(' + ref.code + ') on executing: ' + command + '\n' +
     shell.stderr;
 
@@ -18,6 +18,12 @@ module.exports.exec = function exec(command) {
 
 module.exports.getGHPagesUrl = function getGHPagesUrl(ghUrl) {
   var parsedUrl = parseGitUrl(ghUrl);
-  var ghPagesUrl = 'https://' + parsedUrl.owner + '.github.io/' + parsedUrl.name + '/';
+  var ghPagesUrl;
+  if (parsedUrl.resource === 'github.com') {
+    ghPagesUrl = 'https://' + parsedUrl.owner + '.github.io/' + parsedUrl.name + '/';
+  } else { // Github Enterprise
+    ghPagesUrl = 'https://' + parsedUrl.resource + '/pages/' + parsedUrl.full_name + '/';
+  }
+  
   return ghPagesUrl;
 };
