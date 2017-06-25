@@ -8,7 +8,7 @@ This is a simple tool allows you to deploy your Storybook into a static hosting 
 Install Storybook Deployer with:
 
 ```
-npm i --save @storybook/storybook-deployer
+npm i @storybook/storybook-deployer --save-dev
 ```
 Then add a NPM script like this:
 
