@@ -73,3 +73,8 @@ npm run deploy-storybook -- --remote=upstream
  ```
  npm run deploy-storybook -- --branch=feature-branch
  ```
+
+Or, to specify a source branch other than `master`, pass a `--source-branch` flag to `npm run deploy-storybook`:
+```
+npm run deploy-storybook -- --source-branch=release
+```
