@@ -40,6 +40,14 @@ If you customize the build configuration with some additional params (like stati
 
 > Make sure to set the output directory as **`.out`**.
 
+### Skip Build Step
+
+If you have previously built your storybook output (through a different CI step, etc) and just need to publish it, specify the directory with like this:
+
+```js
+ npm run deploy-storybook -- --existing-output-dir=.out
+```
+
 ### Custom deploy configuration
 
 If you want to customize Git username, email or commit message, add this to `package.json`:

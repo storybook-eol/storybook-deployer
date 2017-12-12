@@ -6,7 +6,8 @@ var path = require('path');
 var packageJson = require(path.resolve('./package.json'));
 var argv = require('yargs').argv;
 
-var OUTPUT_DIR = 'out' + Math.ceil(Math.random() * 9999);
+var SKIP_BUILD = Boolean(argv['existing-output-dir'])
+var OUTPUT_DIR = argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
 
 var defaultConfig = {
   gitUsername: 'GH Pages Bot',
@@ -29,16 +30,18 @@ if (!GIT_URL) {
   process.exit(-1);
 }
 
-// clear and re-create the out directory
-shell.rm('-rf', OUTPUT_DIR);
-shell.mkdir(OUTPUT_DIR);
+if (!SKIP_BUILD) {
+  // clear and re-create the out directory
+  shell.rm('-rf', OUTPUT_DIR);
+  shell.mkdir(OUTPUT_DIR);
 
-// run our compile script
-console.log('=> Building storybook');
-if (packageJson.scripts[NPM_SCRIPT]) {
-  publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
-} else {
-  publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+  // run our compile script
+  console.log('=> Building storybook');
+  if (packageJson.scripts[NPM_SCRIPT]) {
+    publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
+  } else {
+    publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+  }
 }
 
 // go to the out directory and create a *new* Git repo
@@ -66,8 +69,7 @@ publishUtils.exec('git push --force --quiet ' + GIT_URL + ' ' + SOURCE_BRANCH + 
 shell.cd('..');
 shell.rm('-rf', OUTPUT_DIR);
 
-console.log();
-if(TARGET_BRANCH !== 'gh-pages') {
+if (TARGET_BRANCH !== 'gh-pages') {
   var rawgit_url = GIT_URL.replace('github.com', 'rawgit.com').replace('.git', '/') +
     TARGET_BRANCH + '/index.html';
   console.log('=> Storybook deployed to: ' + rawgit_url);
