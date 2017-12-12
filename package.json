@@ -1,6 +1,6 @@
 {
   "name": "@storybook/storybook-deployer",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Deploy your storybook as a webapp.",
   "bin": {
     "storybook-to-ghpages": "./bin/storybook_to_ghpages"
