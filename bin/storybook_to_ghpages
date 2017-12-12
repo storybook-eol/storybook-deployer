@@ -19,6 +19,7 @@ var config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] 
 var GIT_REMOTE = argv['remote'] || 'origin';
 var TARGET_BRANCH = argv['branch'] || "gh-pages";
 var SOURCE_BRANCH = argv['source-branch'] || 'master';
+var NPM_SCRIPT = argv['script'] || 'build-storybook';
 
 // get GIT url
 console.log('=> Getting the git remote URL');
@@ -34,8 +35,8 @@ shell.mkdir(OUTPUT_DIR);
 
 // run our compile script
 console.log('=> Building storybook');
-if (packageJson.scripts['build-storybook']) {
-  publishUtils.exec('npm run build-storybook -- -o ' + OUTPUT_DIR);
+if (packageJson.scripts[NPM_SCRIPT]) {
+  publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
 } else {
   publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
 }
