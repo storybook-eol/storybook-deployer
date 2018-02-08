@@ -42,10 +42,30 @@ If you customize the build configuration with some additional params (like stati
 
 ### Skip Build Step
 
-If you have previously built your storybook output (through a different CI step, etc) and just need to publish it, specify the directory with like this:
+If you have previously built your storybook output (through a different CI step, etc) and just need to publish it, specify the directory like this:
 
 ```js
  npm run deploy-storybook -- --existing-output-dir=.out
+```
+
+### Deploying Storybook as part of a CI service
+
+To deploy Storybook as part of a CI step, pass the `ci` flag to `npm run deploy-storybook`.
+
+Because pushing to GitHub as part of a CI step requires a [personal access token](https://github.com/blog/1509-personal-api-tokens), Storybook uses the `GH_TOKEN` environment variable, by default, to authenticate GitHub pushes.
+
+This environment variable name can be configured via the `host-token-env-variable` flag.
+
+For example, if your access token is stored in the `GH_TOKEN` environment variable
+
+```
+npm run deploy-storybook -- --ci
+```
+
+Or if your access token is stored in the `GITHUB_TOKEN` environment variable
+
+```
+npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
 ```
 
 ### Custom deploy configuration
@@ -70,13 +90,13 @@ It will override the default configuration:
 }
 ```
 
-To deploy Storybook to a remote other than `origin`, pass a `--remote` flag to `npm run deploy-storybook`.  
+To deploy Storybook to a remote other than `origin`, pass a `--remote` flag to `npm run deploy-storybook`.
 For example, to deploy to your `upstream` remote:
 
 ```
 npm run deploy-storybook -- --remote=upstream
 ```
- 
+
  Or, to specify a target branch and serve your storybook with rawgit instead of gh-pages:
  ```
  npm run deploy-storybook -- --branch=feature-branch

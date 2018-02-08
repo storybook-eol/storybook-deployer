@@ -22,6 +22,7 @@
   "homepage": "https://github.com/storybooks/storybook-deployer#readme",
   "dependencies": {
     "git-url-parse": "^6.0.2",
+    "parse-repo": "^1.0.4",
     "shelljs": "^0.7.0",
     "yargs": "^8.0.1"
   }
