@@ -4,14 +4,16 @@ const shell = require('shelljs');
 const publishUtils = require('../src/utils');
 const path = require('path');
 const fs = require('fs');
-const glob = require('glob');
 const packageJson = require(path.resolve('./package.json'));
 const argv = require('yargs').argv;
 const parseRepo = require('parse-repo');
-const buildMonorepoIndex = require('../src/build-monorepo-index')
+const build = require('../src/build');
 
 const SKIP_BUILD = Boolean(argv['existing-output-dir'])
 const OUTPUT_DIR = argv.out || argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
+const NPM_SCRIPT = argv['script'];
+const PACKAGES_DIRECTORY = argv['packages'];
+const MONOREPO_INDEX_GENERATOR = argv['monorepo-index-generator'];
 
 const defaultConfig = {
   gitUsername: 'GH Pages Bot',
@@ -37,69 +39,7 @@ if (!GIT_URL) {
   process.exit(-1);
 }
 
-function buildStorybook(currentPackage) {
-  // clear and re-create the out directory
-  shell.rm('-rf', OUTPUT_DIR);
-  shell.mkdir(OUTPUT_DIR);
-
-  if (currentPackage.scripts[NPM_SCRIPT]) {
-    publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
-  } else {
-    publishUtils.exec('build-storybook  -o ' + OUTPUT_DIR);
-  }
-}
-
-function buildSubPackage(origDir, dir) {
-  shell.cd(dir);
-
-  if (!fs.existsSync('package.json')) {
-    return;
-  }
-
-  const subPackage = JSON.parse(
-    fs.readFileSync(path.resolve('package.json'), 'utf8')
-  );
-
-  if (
-    !fs.existsSync('.storybook') &&
-    (!subPackage.scripts || !subPackage.scripts[NPM_SCRIPT])
-  ) {
-    return;
-  }
-
-  console.log(`=> Building storybook for: ${subPackage.name}`);
-  buildStorybook(subPackage);
-
-  const builtStorybook = path.join(dir, OUTPUT_DIR, '*');
-  const outputPath = path.join(origDir, OUTPUT_DIR, subPackage.name);
-
-  shell.mkdir('-p', outputPath);
-  shell.cp('-r', builtStorybook, outputPath);
-  shell.rm('-rf', builtStorybook);
-
-  return subPackage;
-}
-
-if (!SKIP_BUILD) {
-  if (argv.packages) {
-    const origDir = process.cwd();
-    
-    const packages = glob
-      .sync(path.join(origDir, argv.packages, '**/package.json'), {
-        ignore: '**/node_modules/**'
-      })
-      .map(json => path.dirname(json))
-      .map(subPackage => buildSubPackage(origDir, subPackage))
-      .filter(subPackage => subPackage);
-
-    shell.cd(origDir);
-
-    buildMonorepoIndex(packages, argv['monorepo-index-generator'], OUTPUT_DIR);
-  } else {
-    console.log('=> Building storybook');
-    buildStorybook(packageJson);
-  }
-}
+build(SKIP_BUILD, OUTPUT_DIR, packageJson, PACKAGES_DIRECTORY, NPM_SCRIPT, MONOREPO_INDEX_GENERATOR);
 
 // go to the out directory and create a *new* Git repo
 shell.cd(OUTPUT_DIR);
