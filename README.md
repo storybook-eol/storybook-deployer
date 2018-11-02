@@ -1,6 +1,6 @@
 # Storybook Deployer
 
-This is a simple tool allows you to deploy your Storybook into a static hosting service. (Currently, GitHub Pages only.)
+This is a simple tool allows you to deploy your Storybook into a static hosting service. (Currently, GitHub Pages and AWS S3 beta)
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ Install Storybook Deployer with:
 ```
 npm i @storybook/storybook-deployer --save-dev
 ```
-Then add a NPM script like this:
+Then add a NPM script like this for github page:
 
 ```json
 {
@@ -19,7 +19,17 @@ Then add a NPM script like this:
 }
 ```
 
-Then you can run `npm run deploy-storybook` to deploy the Storybook to GitHub Pages.
+or like this for AWS S3:
+
+```json
+{
+  "scripts": {
+    "deploy-storybook": "storybook-to-aws-s3",
+  }
+}
+```
+
+Then you can run `npm run deploy-storybook` to deploy the Storybook.
 
 ### Custom Build Configuration
 
@@ -101,3 +111,13 @@ Or, to specify a source branch other than `master`, pass a `--source-branch` fla
 ```sh
 npm run deploy-storybook -- --source-branch=release
 ```
+
+#### Custom deploy configuration for S3
+
+For AWS S3 deployment you must have [awscli](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) installed.
+
+You must specify a bucket path with `bucket-path` option: `my-bucket-name/path/to/destination-folder-in-bucket` and have the rights to write to this bucket.
+
+You can change the aws profile used to run the command with the `aws-profile` option.
+
+example: `storybook-to-aws-s3 --bucket-path=my-bucket-name/path/to/destination-folder-in-bucket --aws-profile=myprofile`

@@ -2,6 +2,7 @@
 
 var shell = require('shelljs');
 var publishUtils = require('../src/utils');
+var build = require('../src/build');
 var path = require('path');
 var packageJson = require(path.resolve('./package.json'));
 var argv = require('yargs').argv;
@@ -9,6 +10,7 @@ var parseRepo = require('parse-repo');
 
 var SKIP_BUILD = Boolean(argv['existing-output-dir'])
 var OUTPUT_DIR = argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
+var NPM_SCRIPT = argv['script'];
 
 var defaultConfig = {
   gitUsername: 'GH Pages Bot',
@@ -21,7 +23,6 @@ var config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] 
 var GIT_REMOTE = argv['remote'] || 'origin';
 var TARGET_BRANCH = argv['branch'] || "gh-pages";
 var SOURCE_BRANCH = argv['source-branch'] || 'master';
-var NPM_SCRIPT = argv['script'] || 'build-storybook';
 var CI_DEPLOY = Boolean(argv['ci']);
 var HOST_TOKEN_ENV_VARIABLE = argv['host-token-env-variable'] || 'GH_TOKEN';
 var HOST_TOKEN = process.env[HOST_TOKEN_ENV_VARIABLE];
@@ -34,19 +35,7 @@ if (!GIT_URL) {
   process.exit(-1);
 }
 
-if (!SKIP_BUILD) {
-  // clear and re-create the out directory
-  shell.rm('-rf', OUTPUT_DIR);
-  shell.mkdir(OUTPUT_DIR);
-
-  // run our compile script
-  console.log('=> Building storybook');
-  if (packageJson.scripts[NPM_SCRIPT]) {
-    publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
-  } else {
-    publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
-  }
-}
+build(SKIP_BUILD, OUTPUT_DIR, packageJson, NPM_SCRIPT);
 
 // go to the out directory and create a *new* Git repo
 shell.cd(OUTPUT_DIR);
