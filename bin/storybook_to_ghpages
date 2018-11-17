@@ -3,6 +3,7 @@
 var shell = require('shelljs');
 var publishUtils = require('../src/utils');
 var path = require('path');
+var fs = require('fs');
 var glob = require('glob');
 var packageJson = require(path.resolve('./package.json'));
 var argv = require('yargs').argv;
