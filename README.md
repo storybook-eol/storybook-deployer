@@ -53,10 +53,21 @@ npm run deploy-storybook -- --existing-output-dir=.out
 
 If you manage a monorepo with multiple storybooks you can you pass the `packages` flag to `deploy-storybook` to scan a directory for `package.json`s.
 
-The following command will search the `packages` directory for packages.
+The following command will search the `packages` directory for packages. It will also generate a default `index.html` that links to all of the loaded storybooks.
 
 ```sh
 npm run deploy-storybook -- --packages packages
+```
+
+### Customize Monorepo `index.html`
+
+To customize the monorepo `index.html` you can pass the `packages` flag to `deploy-storybook`. This function will receive the following arguments:
+
+- an array of all the `package.json` data from the loaded storybooks as the first argument
+- the output directory
+
+```sh
+npm run deploy-storybook -- --monorepo-index-generator my-custom-generator.js
 ```
 
 ### Deploying Storybook as part of a CI service
