@@ -42,9 +42,9 @@ function buildStorybook() {
   shell.mkdir(OUTPUT_DIR);
 
   if (packageJson.scripts[NPM_SCRIPT]) {
-    exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
+    publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
   } else {
-    exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+    publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
   }
 }
 
