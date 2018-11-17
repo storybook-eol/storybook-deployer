@@ -19,7 +19,7 @@ function generateHTML(packages) {
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Page Title</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="mono-repo-index.css">
+      <link rel="stylesheet" type="text/css" href="monorepo-index.css">
     </head>
     <body>
       <img class="banner" src="storybook.svg" alt="Storybook"/>
@@ -52,8 +52,8 @@ module.exports = function buildMonorepoIndex(packages, customHTMLGenerate, outpu
       path.join(outputDir, 'storybook.svg')
     );
     shell.cp(
-      path.join(__dirname, 'mono-repo-index.css'),
-      path.join(outputDir, 'mono-repo-index.css')
+      path.join(__dirname, 'monorepo-index.css'),
+      path.join(outputDir, 'monorepo-index.css')
     );
   }
 
