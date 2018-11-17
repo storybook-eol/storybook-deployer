@@ -94,7 +94,7 @@ if (!SKIP_BUILD) {
 
     shell.cd(origDir);
 
-    buildMonorepoIndex(packages, OUTPUT_DIR)
+    buildMonorepoIndex(packages, argv['monorepo-index-generator'], OUTPUT_DIR);
   } else {
     console.log('=> Building storybook');
     buildStorybook(packageJson);
