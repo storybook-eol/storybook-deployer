@@ -3,6 +3,7 @@
 var shell = require('shelljs');
 var publishUtils = require('../src/utils');
 var path = require('path');
+var glob = require('glob');
 var packageJson = require(path.resolve('./package.json'));
 var argv = require('yargs').argv;
 var parseRepo = require('parse-repo');
@@ -34,17 +35,57 @@ if (!GIT_URL) {
   process.exit(-1);
 }
 
-if (!SKIP_BUILD) {
+function buildStorybook() {
   // clear and re-create the out directory
   shell.rm('-rf', OUTPUT_DIR);
   shell.mkdir(OUTPUT_DIR);
 
-  // run our compile script
-  console.log('=> Building storybook');
   if (packageJson.scripts[NPM_SCRIPT]) {
-    publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
+    exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
   } else {
-    publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+    exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+  }
+}
+
+if (!SKIP_BUILD) {
+  if (argv.packages) {
+    var origDir = process.cwd();
+    var packages = glob
+      .sync(path.join(process.cwd(), argv.packages, '**/package.json'), {
+        ignore: '**/node_modules/**'
+      })
+      .map(json => path.dirname(json));
+
+    packages.map(dir => {
+      shell.cd(dir);
+
+      if (!fs.existsSync('package.json')) {
+        return;
+      }
+
+      const subPackage = JSON.parse(
+        fs.readFileSync(path.resolve('package.json'), 'utf8')
+      );
+
+      if (!fs.existsSync('.storybook') && !subPackage.scripts[NPM_SCRIPT]) {
+        return;
+      }
+
+      console.log(`=> Building storybook for: ${subPackage.name}`);
+      buildStorybook();
+
+      const builtStorybook = path.join(dir, OUTPUT_DIR, '*');
+      const outputPath = path.join(origDir, OUTPUT_DIR, subPackage.name);
+
+      shell.mkdir('-p', outputPath);
+      shell.cp('-r', builtStorybook, outputPath);
+      shell.rm('-rf', builtStorybook);
+    });
+
+    shell.cd(origDir);
+  } else {
+    console.log('=> Building storybook');
+    buildStorybook();
   }
 }
 
