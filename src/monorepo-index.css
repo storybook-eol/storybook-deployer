@@ -1,0 +1,46 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60%;
+  margin: 4rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  margin: 3rem auto;
+}
+
+.banner {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.package-row {
+  background-color: #eee;
+  border-radius: 5%;
+  box-shadow: 0px 10px 1px #ddd, 0 10px 20px #ccc;
+  margin-bottom: 1.5rem;
+  color: #666;
+  display: flex
+}
+
+.package-row a {
+  padding: 2rem;
+}
+
+.package-row span {
+  padding: 2rem 2rem 2rem 1rem;
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+  background: #e9e9e9;
+  flex-grow: 1;
+}

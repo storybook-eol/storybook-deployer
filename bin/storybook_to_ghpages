@@ -8,6 +8,7 @@ const glob = require('glob');
 const packageJson = require(path.resolve('./package.json'));
 const argv = require('yargs').argv;
 const parseRepo = require('parse-repo');
+const buildMonorepoIndex = require('../src/build-monorepo-index')
 
 const SKIP_BUILD = Boolean(argv['existing-output-dir'])
 const OUTPUT_DIR = argv.out || argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
@@ -75,20 +76,25 @@ function buildSubPackage(origDir, dir) {
   shell.mkdir('-p', outputPath);
   shell.cp('-r', builtStorybook, outputPath);
   shell.rm('-rf', builtStorybook);
+
+  return subPackage;
 }
 
 if (!SKIP_BUILD) {
   if (argv.packages) {
     const origDir = process.cwd();
     
-    glob
+    const packages = glob
       .sync(path.join(origDir, argv.packages, '**/package.json'), {
         ignore: '**/node_modules/**'
       })
       .map(json => path.dirname(json))
-      .map(subPackage => buildSubPackage(origDir, subPackage));
+      .map(subPackage => buildSubPackage(origDir, subPackage))
+      .filter(subPackage => subPackage);
 
     shell.cd(origDir);
+
+    buildMonorepoIndex(packages, OUTPUT_DIR)
   } else {
     console.log('=> Building storybook');
     buildStorybook(packageJson);
