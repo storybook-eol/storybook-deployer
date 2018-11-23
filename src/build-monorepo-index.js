@@ -5,7 +5,7 @@ const path = require('path');
 const colors = ['purple', 'pink', 'orange', 'green', 'blue', 'red'];
 
 function generateHTML(packages) {
-  const packageRows = [...packages, ...packages, ...packages, ...packages].map(
+  const packageRows = packages.map(
     (package, index) => `
       <a href="${path.join(package.name, 'index.html')}" class="package-row">
         <span class="title is-${colors[index % colors.length]}">
