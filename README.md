@@ -45,7 +45,7 @@ npm run deploy-storybook -- --existing-output-dir=.out
 
 ### Deploy a Monorepo
 
-If you manage a monorepo with multiple storybooks your can you pass the `packages` flag to `deploy-storybook` to scan a directory for `package.json`s.
+If you manage a monorepo with multiple storybooks you can you pass the `packages` flag to `deploy-storybook` to scan a directory for `package.json`s.
 
 The following command will search the `packages` directory for packages.
 
