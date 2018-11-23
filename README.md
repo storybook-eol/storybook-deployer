@@ -33,6 +33,14 @@ If you customize the build configuration with some additional params (like stati
 }
 ```
 
+### Configure Build Directory
+
+If you need to configure the output directory you can supply the `out` flag.
+
+```sh
+npm run deploy-storybook -- --out=.out
+```
+
 ### Skip Build Step
 
 If you have previously built your storybook output (through a different CI step, etc) and just need to publish it, specify the directory like this:
