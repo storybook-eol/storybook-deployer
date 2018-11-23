@@ -2,13 +2,17 @@ const shell = require('shelljs');
 const fs = require('fs');
 const path = require('path');
 
+const colors = ['purple', 'pink', 'orange', 'green', 'blue', 'red'];
+
 function generateHTML(packages) {
-  const packageRows = packages.map(
-    package => `
-      <div class="package-row">
-        <a href="${path.join(package.name, 'index.html')}">${package.name}</a>
-        <span>${package.description}</span>
-      </div>
+  const packageRows = [...packages, ...packages, ...packages, ...packages].map(
+    (package, index) => `
+      <a href="${path.join(package.name, 'index.html')}" class="package-row">
+        <span class="title is-${colors[index % colors.length]}">
+          ${package.name}
+        </span>
+        <span class="description">${package.description}</span>
+      </a>
     `
   );
   const index = `
@@ -33,19 +37,23 @@ function generateHTML(packages) {
   return index;
 }
 
-module.exports = function buildMonorepoIndex(packages, customHTMLGenerate, outputDir) {
+module.exports = function buildMonorepoIndex(
+  packages,
+  customHTMLGenerate,
+  outputDir
+) {
   let index;
 
   console.log(`=> Building index.html for monorepo`);
-  
+
   if (customHTMLGenerate) {
-    const fn = require(path.join(process.cwd(), customHTMLGenerate))
+    const fn = require(path.join(process.cwd(), customHTMLGenerate));
 
     if (typeof fn === 'function') {
-      index = fn(packages, outputDir)
+      index = fn(packages, outputDir);
     }
   } else {
-    index = generateHTML(packages)
+    index = generateHTML(packages);
 
     shell.cp(
       path.join(__dirname, 'storybook.svg'),
