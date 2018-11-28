@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "git-url-parse": "^8.1.0",
+    "glob": "^7.1.3",
     "parse-repo": "^1.0.4",
     "shelljs": "^0.8.1",
     "yargs": "^11.0.0"

@@ -49,6 +49,16 @@ If you have previously built your storybook output (through a different CI step,
 npm run deploy-storybook -- --existing-output-dir=.out
 ```
 
+### Deploy a Monorepo
+
+If you manage a monorepo with multiple storybooks you can you pass the `packages` flag to `deploy-storybook` to scan a directory for `package.json`s.
+
+The following command will search the `packages` directory for packages.
+
+```sh
+npm run deploy-storybook -- --packages packages
+```
+
 ### Deploying Storybook as part of a CI service
 
 To deploy Storybook as part of a CI step, pass the `ci` flag to `npm run deploy-storybook`.

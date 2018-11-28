@@ -1,50 +1,94 @@
 #!/usr/bin/env node
 
-var shell = require('shelljs');
-var publishUtils = require('../src/utils');
-var path = require('path');
-var packageJson = require(path.resolve('./package.json'));
-var argv = require('yargs').argv;
-var parseRepo = require('parse-repo');
+const shell = require('shelljs');
+const publishUtils = require('../src/utils');
+const path = require('path');
+const fs = require('fs');
+const glob = require('glob');
+const packageJson = require(path.resolve('./package.json'));
+const argv = require('yargs').argv;
+const parseRepo = require('parse-repo');
 
-var SKIP_BUILD = Boolean(argv['existing-output-dir'])
-var OUTPUT_DIR = argv.out || argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
+const SKIP_BUILD = Boolean(argv['existing-output-dir'])
+const OUTPUT_DIR = argv.out || argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
 
-var defaultConfig = {
+const defaultConfig = {
   gitUsername: 'GH Pages Bot',
   gitEmail: 'hello@ghbot.com',
   commitMessage: 'Deploy Storybook to GitHub Pages'
 };
 
-var config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] || defaultConfig);
+const config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] || defaultConfig);
 
-var GIT_REMOTE = argv['remote'] || 'origin';
-var TARGET_BRANCH = argv['branch'] || "gh-pages";
-var SOURCE_BRANCH = argv['source-branch'] || 'master';
-var NPM_SCRIPT = argv['script'] || 'build-storybook';
-var CI_DEPLOY = Boolean(argv['ci']);
-var HOST_TOKEN_ENV_VARIABLE = argv['host-token-env-variable'] || 'GH_TOKEN';
-var HOST_TOKEN = process.env[HOST_TOKEN_ENV_VARIABLE];
+const GIT_REMOTE = argv['remote'] || 'origin';
+const TARGET_BRANCH = argv['branch'] || "gh-pages";
+const SOURCE_BRANCH = argv['source-branch'] || 'master';
+const NPM_SCRIPT = argv['script'] || 'build-storybook';
+const CI_DEPLOY = Boolean(argv['ci']);
+const HOST_TOKEN_ENV_VARIABLE = argv['host-token-env-variable'] || 'GH_TOKEN';
+const HOST_TOKEN = process.env[HOST_TOKEN_ENV_VARIABLE];
 
 // get GIT url
 console.log('=> Getting the git remote URL');
-var GIT_URL = publishUtils.exec(`git config --get remote.${GIT_REMOTE}.url`);
+let GIT_URL = publishUtils.exec(`git config --get remote.${GIT_REMOTE}.url`);
 if (!GIT_URL) {
   console.log('This project is not configured with a remote git repo');
   process.exit(-1);
 }
 
-if (!SKIP_BUILD) {
+function buildStorybook() {
   // clear and re-create the out directory
   shell.rm('-rf', OUTPUT_DIR);
   shell.mkdir(OUTPUT_DIR);
 
-  // run our compile script
-  console.log('=> Building storybook');
   if (packageJson.scripts[NPM_SCRIPT]) {
     publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
   } else {
     publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+  }
+}
+
+function buildSubPackage(origDir, dir) {
+  shell.cd(dir);
+
+  if (!fs.existsSync('package.json')) {
+    return;
+  }
+
+  const subPackage = JSON.parse(
+    fs.readFileSync(path.resolve('package.json'), 'utf8')
+  );
+
+  if (!fs.existsSync('.storybook') && !subPackage.scripts[NPM_SCRIPT]) {
+    return;
+  }
+
+  console.log(`=> Building storybook for: ${subPackage.name}`);
+  buildStorybook();
+
+  const builtStorybook = path.join(dir, OUTPUT_DIR, '*');
+  const outputPath = path.join(origDir, OUTPUT_DIR, subPackage.name);
+
+  shell.mkdir('-p', outputPath);
+  shell.cp('-r', builtStorybook, outputPath);
+  shell.rm('-rf', builtStorybook);
+}
+
+if (!SKIP_BUILD) {
+  if (argv.packages) {
+    const origDir = process.cwd();
+    
+    glob
+      .sync(path.join(origDir, argv.packages, '**/package.json'), {
+        ignore: '**/node_modules/**'
+      })
+      .map(json => path.dirname(json))
+      .map(subPackage => buildSubPackage(origDir, subPackage));
+
+    shell.cd(origDir);
+  } else {
+    console.log('=> Building storybook');
+    buildStorybook();
   }
 }
 
@@ -70,7 +114,7 @@ publishUtils.exec('git commit -m ' + JSON.stringify(config.commitMessage));
 // /dev/null to hide any sensitive credential data that might otherwise be exposed.
 console.log('=> Deploying storybook');
 if (CI_DEPLOY) {
-  var repositoryDetails = parseRepo(GIT_URL);
+  const repositoryDetails = parseRepo(GIT_URL);
 
   if (repositoryDetails.host === 'github.com' && HOST_TOKEN) {
     GIT_URL = 'https://' + HOST_TOKEN + '@' + repositoryDetails.host + '/' + repositoryDetails.repository;
@@ -82,7 +126,7 @@ shell.cd('..');
 shell.rm('-rf', OUTPUT_DIR);
 
 if (TARGET_BRANCH !== 'gh-pages') {
-  var rawgit_url = GIT_URL.replace('github.com', 'rawgit.com').replace('.git', '/') +
+  const rawgit_url = GIT_URL.replace('github.com', 'rawgit.com').replace('.git', '/') +
     TARGET_BRANCH + '/index.html';
   console.log('=> Storybook deployed to: ' + rawgit_url);
 } else {
