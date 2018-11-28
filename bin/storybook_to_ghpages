@@ -10,7 +10,7 @@ const argv = require('yargs').argv;
 const parseRepo = require('parse-repo');
 
 const SKIP_BUILD = Boolean(argv['existing-output-dir'])
-const OUTPUT_DIR = argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
+const OUTPUT_DIR = argv.out || argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
 
 const defaultConfig = {
   gitUsername: 'GH Pages Bot',
