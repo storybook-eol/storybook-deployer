@@ -8,7 +8,7 @@ var argv = require('yargs').argv;
 var parseRepo = require('parse-repo');
 
 var SKIP_BUILD = Boolean(argv['existing-output-dir'])
-var OUTPUT_DIR = argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
+var OUTPUT_DIR = argv.out || argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
 
 var defaultConfig = {
   gitUsername: 'GH Pages Bot',

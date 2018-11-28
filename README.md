@@ -28,12 +28,18 @@ If you customize the build configuration with some additional params (like stati
 ```json
 {
   "scripts": {
-    "build-storybook": "build-storybook -s public -o .out",
+    "build-storybook": "build-storybook -s public",
   }
 }
 ```
 
-> Make sure to set the output directory as **`.out`**.
+### Configure Build Directory
+
+If you need to configure the output directory you can supply the `out` flag.
+
+```sh
+npm run deploy-storybook -- --out=.out
+```
 
 ### Skip Build Step
 
