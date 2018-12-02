@@ -36,12 +36,12 @@ if (!GIT_URL) {
   process.exit(-1);
 }
 
-function buildStorybook() {
+function buildStorybook(currentPackage) {
   // clear and re-create the out directory
   shell.rm('-rf', OUTPUT_DIR);
   shell.mkdir(OUTPUT_DIR);
 
-  if (packageJson.scripts[NPM_SCRIPT]) {
+  if (currentPackage.scripts[NPM_SCRIPT]) {
     publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
   } else {
     publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
@@ -67,7 +67,7 @@ function buildSubPackage(origDir, dir) {
   }
 
   console.log(`=> Building storybook for: ${subPackage.name}`);
-  buildStorybook();
+  buildStorybook(subPackage);
 
   const builtStorybook = path.join(dir, OUTPUT_DIR, '*');
   const outputPath = path.join(origDir, OUTPUT_DIR, subPackage.name);
@@ -91,7 +91,7 @@ if (!SKIP_BUILD) {
     shell.cd(origDir);
   } else {
     console.log('=> Building storybook');
-    buildStorybook();
+    buildStorybook(packageJson);
   }
 }
 
