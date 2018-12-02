@@ -59,7 +59,10 @@ function buildSubPackage(origDir, dir) {
     fs.readFileSync(path.resolve('package.json'), 'utf8')
   );
 
-  if (!fs.existsSync('.storybook') && !subPackage.scripts[NPM_SCRIPT]) {
+  if (
+    !fs.existsSync('.storybook') &&
+    (!subPackage.scripts || !subPackage.scripts[NPM_SCRIPT])
+  ) {
     return;
   }
 
