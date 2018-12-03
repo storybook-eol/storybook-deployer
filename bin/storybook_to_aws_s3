@@ -5,9 +5,8 @@ const publishUtils = require('../src/utils');
 const build = require('../src/build');
 const path = require('path');
 const packageJson = require(path.resolve('./package.json'));
-const argv = require('yargs').argv;
 const parseArgs = require('../src/parse-args');
-const { config, ...args } = parseArgs(packageJson, argv);
+const { config, ...args } = parseArgs(packageJson);
 
 if (!args.BUCKET_PATH) {
   console.log(

@@ -4,12 +4,11 @@ const shell = require('shelljs');
 const publishUtils = require('../src/utils');
 const path = require('path');
 const packageJson = require(path.resolve('./package.json'));
-const argv = require('yargs').argv;
 const parseRepo = require('parse-repo');
 
 const parseArgs = require('../src/parse-args');
 const build = require('../src/build');
-const { config, ...args } = parseArgs(packageJson, argv);
+const { config, ...args } = parseArgs(packageJson);
 
 // get GIT url
 console.log('=> Getting the git remote URL');

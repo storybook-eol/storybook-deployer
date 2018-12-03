@@ -1,10 +1,12 @@
+const argv = require('yargs').argv;
+
 const defaultConfig = {
   gitUsername: 'GH Pages Bot',
   gitEmail: 'hello@ghbot.com',
   commitMessage: 'Deploy Storybook to GitHub Pages'
 };
 
-module.exports = (packageJson, argv) => {
+module.exports = packageJson => {
   const HOST_TOKEN_ENV_VARIABLE = argv['host-token-env-variable'] || 'GH_TOKEN';
 
   return {
