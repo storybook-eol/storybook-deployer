@@ -2,6 +2,28 @@
 
 This is a simple tool allows you to deploy your Storybook into a static hosting service. (Currently, GitHub Pages and AWS S3 beta)
 
+```sh
+$ storybook-to-ghpages --help
+
+Options:
+  --help, -h                      Show help.                                                 [boolean]
+  --version                       Show version number                                        [boolean]
+  --existing-output-dir, -e       If you have previously built your storybook output (through a
+                                  different CI step, etc) and just need to publish it         [string]
+  --out, -o                       Configure the output directory                              [string]
+  --packages, -p                  Directory for package.jsons (monorepo support)              [string]
+  --monorepo-index-generator, -m  Path to file to customize the monorepo index.html. This function
+                                  should return the html for the page.                        [string]
+  --script, -s                    Specify the build script in your package.json               [string]
+  --ci                            Deploy the storybook in CI mode (github only)              [boolean]
+  --remote                        Git remote to push to                   [string] [default: "origin"]
+  --branch                        Git branch to push to                 [string] [default: "gh-pages"]
+  --source-branch                 Source branch to push from              [string] [default: "master"]
+  --host-token-env-variable, -t   Github token for CI publish           [string] [default: "GH_TOKEN"]
+  --aws-profile                   AWS profile to use for publishing      [string] [default: "default"]
+  --bucket-path                   AWS bucket path to use for publishing                       [string]
+```
+
 ## Getting Started
 
 Install Storybook Deployer with:
