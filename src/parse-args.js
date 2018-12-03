@@ -1,10 +1,12 @@
+const argv = require('yargs').argv;
+
 const defaultConfig = {
   gitUsername: 'GH Pages Bot',
   gitEmail: 'hello@ghbot.com',
   commitMessage: 'Deploy Storybook to GitHub Pages'
 };
 
-module.exports = (packageJson, argv) => {
+module.exports = packageJson => {
   const HOST_TOKEN_ENV_VARIABLE = argv['host-token-env-variable'] || 'GH_TOKEN';
 
   return {
@@ -18,13 +20,13 @@ module.exports = (packageJson, argv) => {
       argv.out ||
       argv['existing-output-dir'] ||
       'out' + Math.ceil(Math.random() * 9999),
-    PACKAGES_DIRECTORY: argv['packages'],
+    PACKAGES_DIRECTORY: argv.packages,
     MONOREPO_INDEX_GENERATOR: argv['monorepo-index-generator'],
-    NPM_SCRIPT: argv['script'] || 'build-storybook',
-    CI_DEPLOY: Boolean(argv['ci']),
+    NPM_SCRIPT: argv.script || 'build-storybook',
+    CI_DEPLOY: Boolean(argv.ci),
     // Git Variables
-    GIT_REMOTE: argv['remote'] || 'origin',
-    TARGET_BRANCH: argv['branch'] || 'gh-pages',
+    GIT_REMOTE: argv.remote || 'origin',
+    TARGET_BRANCH: argv.branch || 'gh-pages',
     SOURCE_BRANCH: argv['source-branch'] || 'master',
     HOST_TOKEN: process.env[HOST_TOKEN_ENV_VARIABLE],
     // AWS Variables

@@ -4,38 +4,33 @@ const path = require('path');
 
 const colors = ['purple', 'pink', 'orange', 'green', 'blue', 'red'];
 
-function generateHTML(packages) {
-  const packageRows = packages.map(
-    (package, index) => `
-      <a href="${path.join(package.name, 'index.html')}" class="package-row">
-        <span class="title is-${colors[index % colors.length]}">
-          ${package.name}
-        </span>
-        <span class="description">${package.description}</span>
-      </a>
-    `
-  );
-  const index = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Storybooks</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="monorepo-index.css">
-    </head>
-    <body>
-      <img class="banner" src="storybook.svg" alt="Storybook"/>
-      <div class="content">
-        ${packageRows.join('')}
-      </div>
-    </body>
-    </html>
-  `;
+const generateRow = (package, index) => `
+  <a href="${path.join(package.name, 'index.html')}" class="package-row">
+    <span class="title is-${colors[index % colors.length]}">
+      ${package.name}
+    </span>
+    <span class="description">${package.description}</span>
+  </a>
+`;
 
-  return index;
-}
+const generateHTML = packages => `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Storybooks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="monorepo-index.css">
+  </head>
+  <body>
+    <img class="banner" src="storybook.svg" alt="Storybook"/>
+    <div class="content">
+      ${packages.map(generateRow).join('')}
+    </div>
+  </body>
+  </html>
+`;
 
 module.exports = function buildMonorepoIndex(
   packages,
@@ -44,7 +39,7 @@ module.exports = function buildMonorepoIndex(
 ) {
   let index;
 
-  console.log(`=> Building index.html for monorepo`);
+  console.log('=> Building index.html for monorepo');
 
   if (customHTMLGenerate) {
     const fn = require(path.join(process.cwd(), customHTMLGenerate));
