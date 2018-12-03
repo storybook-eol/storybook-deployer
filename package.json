@@ -1,6 +1,6 @@
 {
   "name": "@storybook/storybook-deployer",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "description": "Deploy your storybook as a webapp.",
   "keywords": [
     "deploy",
@@ -15,7 +15,8 @@
   "license": "MIT",
   "author": "Arunoda Susiripala <arunoda@kadira.io>",
   "bin": {
-    "storybook-to-ghpages": "./bin/storybook_to_ghpages"
+    "storybook-to-ghpages": "./bin/storybook_to_ghpages",
+    "storybook-to-aws-s3": "./bin/storybook_to_aws_s3"
   },
   "repository": {
     "type": "git",
