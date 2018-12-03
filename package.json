@@ -1,6 +1,6 @@
 {
   "name": "@storybook/storybook-deployer",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Deploy your storybook as a webapp.",
   "keywords": [
     "deploy",
