@@ -45,7 +45,7 @@ function buildStorybook(currentPackage) {
   if (currentPackage.scripts[NPM_SCRIPT]) {
     publishUtils.exec('npm run ' + NPM_SCRIPT + ' -- -o ' + OUTPUT_DIR);
   } else {
-    publishUtils.exec('node ./node_modules/.bin/build-storybook -o ' + OUTPUT_DIR);
+    publishUtils.exec('build-storybook  -o ' + OUTPUT_DIR);
   }
 }
 
