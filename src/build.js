@@ -1,6 +1,7 @@
 const buildMonorepoIndex = require('./build-monorepo-index');
 const glob = require('glob');
 const path = require('path');
+const fs = require('fs');
 const publishUtils = require('./utils');
 const shell = require('shelljs');
 
@@ -47,7 +48,7 @@ function buildSubPackage(origDir, dir, outputDirectory, npmScriptName) {
   return subPackage;
 }
 
-module.exports = function (
+module.exports = function(
   skipBuild,
   outputDirectory,
   packageJson,
@@ -67,7 +68,9 @@ module.exports = function (
         ignore: '**/node_modules/**'
       })
       .map(json => path.dirname(json))
-      .map(subPackage => buildSubPackage(origDir, subPackage, outputDirectory, npmScriptName))
+      .map(subPackage =>
+        buildSubPackage(origDir, subPackage, outputDirectory, npmScriptName)
+      )
       .filter(subPackage => subPackage);
 
     shell.cd(origDir);

@@ -25,7 +25,7 @@ or like this for AWS S3:
 ```json
 {
   "scripts": {
-    "deploy-storybook": "storybook-to-aws-s3",
+    "deploy-storybook": "storybook-to-aws-s3"
   }
 }
 ```

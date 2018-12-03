@@ -3,46 +3,35 @@
 const shell = require('shelljs');
 const publishUtils = require('../src/utils');
 const path = require('path');
-const fs = require('fs');
 const packageJson = require(path.resolve('./package.json'));
 const argv = require('yargs').argv;
 const parseRepo = require('parse-repo');
+
+const parseArgs = require('../src/parse-args');
 const build = require('../src/build');
-
-const SKIP_BUILD = Boolean(argv['existing-output-dir'])
-const OUTPUT_DIR = argv.out || argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
-const NPM_SCRIPT = argv['script'];
-const PACKAGES_DIRECTORY = argv['packages'];
-const MONOREPO_INDEX_GENERATOR = argv['monorepo-index-generator'];
-
-const defaultConfig = {
-  gitUsername: 'GH Pages Bot',
-  gitEmail: 'hello@ghbot.com',
-  commitMessage: 'Deploy Storybook to GitHub Pages'
-};
-
-const config = Object.assign({}, defaultConfig, packageJson['storybook-deployer'] || defaultConfig);
-
-const GIT_REMOTE = argv['remote'] || 'origin';
-const TARGET_BRANCH = argv['branch'] || "gh-pages";
-const SOURCE_BRANCH = argv['source-branch'] || 'master';
-const NPM_SCRIPT = argv['script'] || 'build-storybook';
-const CI_DEPLOY = Boolean(argv['ci']);
-const HOST_TOKEN_ENV_VARIABLE = argv['host-token-env-variable'] || 'GH_TOKEN';
-const HOST_TOKEN = process.env[HOST_TOKEN_ENV_VARIABLE];
+const { config, ...args } = parseArgs(packageJson, argv);
 
 // get GIT url
 console.log('=> Getting the git remote URL');
-let GIT_URL = publishUtils.exec(`git config --get remote.${GIT_REMOTE}.url`);
+let GIT_URL = publishUtils.exec(
+  `git config --get remote.${args.GIT_REMOTE}.url`
+);
 if (!GIT_URL) {
   console.log('This project is not configured with a remote git repo');
   process.exit(-1);
 }
 
-build(SKIP_BUILD, OUTPUT_DIR, packageJson, PACKAGES_DIRECTORY, NPM_SCRIPT, MONOREPO_INDEX_GENERATOR);
+build(
+  args.SKIP_BUILD,
+  args.OUTPUT_DIR,
+  packageJson,
+  args.PACKAGES_DIRECTORY,
+  args.NPM_SCRIPT,
+  args.MONOREPO_INDEX_GENERATOR
+);
 
 // go to the out directory and create a *new* Git repo
-shell.cd(OUTPUT_DIR);
+shell.cd(args.OUTPUT_DIR);
 publishUtils.exec('git init');
 
 // inside this git repo we'll pretend to be a new user
@@ -62,22 +51,42 @@ publishUtils.exec('git commit -m ' + JSON.stringify(config.commitMessage));
 // will be lost, since we are overwriting it.) We redirect any output to
 // /dev/null to hide any sensitive credential data that might otherwise be exposed.
 console.log('=> Deploying storybook');
-if (CI_DEPLOY) {
+if (args.CI_DEPLOY) {
   const repositoryDetails = parseRepo(GIT_URL);
 
-  if (repositoryDetails.host === 'github.com' && HOST_TOKEN) {
-    GIT_URL = 'https://' + HOST_TOKEN + '@' + repositoryDetails.host + '/' + repositoryDetails.repository;
+  if (repositoryDetails.host === 'github.com' && args.HOST_TOKEN) {
+    GIT_URL =
+      'https://' +
+      args.HOST_TOKEN +
+      '@' +
+      repositoryDetails.host +
+      '/' +
+      repositoryDetails.repository;
   }
 }
 
-publishUtils.exec('git push --force --quiet ' + GIT_URL + ' ' + SOURCE_BRANCH + ':' + TARGET_BRANCH)
+publishUtils.exec(
+  'git push --force --quiet ' +
+    GIT_URL +
+    ' ' +
+    args.SOURCE_BRANCH +
+    ':' +
+    args.TARGET_BRANCH
+);
 shell.cd('..');
-shell.rm('-rf', OUTPUT_DIR);
+shell.rm('-rf', args.OUTPUT_DIR);
 
-if (TARGET_BRANCH !== 'gh-pages') {
-  const rawGitUrl = GIT_URL.replace('github.com', 'rawgit.com').replace('.git', '').replace(/\/$/ , '') + '/' +
-    TARGET_BRANCH + '/index.html';
+if (args.TARGET_BRANCH !== 'gh-pages') {
+  const rawGitUrl =
+    GIT_URL.replace('github.com', 'rawgit.com')
+      .replace('.git', '')
+      .replace(/\/$/, '') +
+    '/' +
+    args.TARGET_BRANCH +
+    '/index.html';
   console.log('=> Storybook deployed to: ' + rawGitUrl);
 } else {
-  console.log('=> Storybook deployed to: ' + publishUtils.getGHPagesUrl(GIT_URL));
+  console.log(
+    '=> Storybook deployed to: ' + publishUtils.getGHPagesUrl(GIT_URL)
+  );
 }
