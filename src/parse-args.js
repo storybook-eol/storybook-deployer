@@ -45,6 +45,10 @@ const argv = yargs
     desc: 'Deploy the storybook in CI mode (github only)',
     type: 'boolean'
   })
+  .option('dry-run', {
+    desc: 'Run build but hold off on publishing',
+    type: 'boolean'
+  })
   // Github Variables
   .option('remote', {
     desc: 'Git remote to push to',
@@ -96,6 +100,7 @@ module.exports = packageJson => {
     MONOREPO_INDEX_GENERATOR: argv['monorepo-index-generator'],
     NPM_SCRIPT: argv.script || 'build-storybook',
     CI_DEPLOY: Boolean(argv.ci),
+    DRY_RUN: Boolean(argv.dryRun),
     // Git Variables
     GIT_REMOTE: argv.remote || 'origin',
     TARGET_BRANCH: argv.branch || 'gh-pages',
