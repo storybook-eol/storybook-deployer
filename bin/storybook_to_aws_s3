@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const shell = require("shelljs");
-const publishUtils = require("../src/utils");
-const build = require("../src/build");
-const path = require("path");
-const packageJson = require(path.resolve("./package.json"));
-const argv = require("yargs").argv;
-const parseArgs = require("../src/parse-args");
+const shell = require('shelljs');
+const publishUtils = require('../src/utils');
+const build = require('../src/build');
+const path = require('path');
+const packageJson = require(path.resolve('./package.json'));
+const argv = require('yargs').argv;
+const parseArgs = require('../src/parse-args');
 const { config, ...args } = parseArgs(packageJson, argv);
 
 if (!args.BUCKET_PATH) {
@@ -25,11 +25,11 @@ build(
   args.MONOREPO_INDEX_GENERATOR
 );
 
-console.log("=> Deploying storybook");
+console.log('=> Deploying storybook');
 publishUtils.exec(
   `aws --profile ${args.AWS_PROFILE} s3 sync ${args.OUTPUT_DIR} ${args.S3_PATH}`
 );
 
-shell.rm("-rf", args.OUTPUT_DIR);
+shell.rm('-rf', args.OUTPUT_DIR);
 
-console.log("=> Storybook deployed to: ${S3_PATH}");
+console.log('=> Storybook deployed to: ${S3_PATH}');
