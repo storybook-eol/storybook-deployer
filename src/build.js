@@ -7,14 +7,15 @@ const shell = require('shelljs');
 
 function buildStorybook(currentPackage, outputDirectory, npmScriptName) {
   console.log(`=> Building storybook for: ${currentPackage.name}`);
+
   // clear and re-create the out directory
   shell.rm('-rf', outputDirectory);
   shell.mkdir(outputDirectory);
 
   if (currentPackage.scripts[npmScriptName]) {
-    publishUtils.exec('npm run ' + npmScriptName + ' -- -o ' + outputDirectory);
+    publishUtils.exec(`npm run ${npmScriptName} -- -o ${outputDirectory}`);
   } else {
-    publishUtils.exec('build-storybook  -o ' + outputDirectory);
+    publishUtils.exec(`build-storybook  -o ${outputDirectory}`);
   }
 }
 
@@ -67,7 +68,7 @@ module.exports = function(
       .sync(path.join(origDir, packagesDirectory, '**/package.json'), {
         ignore: '**/node_modules/**'
       })
-      .map(json => path.dirname(json))
+      .map(path.dirname)
       .map(subPackage =>
         buildSubPackage(origDir, subPackage, outputDirectory, npmScriptName)
       )

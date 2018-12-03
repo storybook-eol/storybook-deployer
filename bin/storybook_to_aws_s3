@@ -31,4 +31,4 @@ publishUtils.exec(
 
 shell.rm('-rf', args.OUTPUT_DIR);
 
-console.log('=> Storybook deployed to: ${S3_PATH}');
+console.log(`=> Storybook deployed to: ${S3_PATH}`);
