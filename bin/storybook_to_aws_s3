@@ -1,32 +1,35 @@
 #!/usr/bin/env node
 
-var shell = require('shelljs');
-var publishUtils = require('../src/utils');
-var build = require('../src/build');
-var path = require('path');
-var packageJson = require(path.resolve('./package.json'));
-var argv = require('yargs').argv;
+const shell = require("shelljs");
+const publishUtils = require("../src/utils");
+const build = require("../src/build");
+const path = require("path");
+const packageJson = require(path.resolve("./package.json"));
+const argv = require("yargs").argv;
+const parseArgs = require("../src/parse-args");
+const { config, ...args } = parseArgs(packageJson, argv);
 
-var SKIP_BUILD = Boolean(argv['existing-output-dir'])
-var OUTPUT_DIR = argv['existing-output-dir'] || 'out' + Math.ceil(Math.random() * 9999);
-var NPM_SCRIPT = argv['script'];
-const PACKAGES_DIRECTORY = argv['packages'];
-const MONOREPO_INDEX_GENERATOR = argv['monorepo-index-generator'];
-
-var AWS_PROFILE = argv['aws-profile'] || 'default';
-var BUCKET_PATH = argv['bucket-path'];
-var S3_PATH = 's3://' + BUCKET_PATH;
-
-if (!BUCKET_PATH) {
-  console.log('This command needs a bucket path: "my-bucket-name/path/to/destination-folder-in-bucket"');
+if (!args.BUCKET_PATH) {
+  console.log(
+    'This command needs a bucket path: "my-bucket-name/path/to/destination-folder-in-bucket"'
+  );
   process.exit(-1);
 }
 
-build(SKIP_BUILD, OUTPUT_DIR, packageJson, PACKAGES_DIRECTORY, NPM_SCRIPT, MONOREPO_INDEX_GENERATOR);
+build(
+  args.SKIP_BUILD,
+  args.OUTPUT_DIR,
+  packageJson,
+  args.PACKAGES_DIRECTORY,
+  args.NPM_SCRIPT,
+  args.MONOREPO_INDEX_GENERATOR
+);
 
-console.log('=> Deploying storybook');
-publishUtils.exec(`aws --profile ${AWS_PROFILE} s3 sync ${OUTPUT_DIR} ${S3_PATH}`);
+console.log("=> Deploying storybook");
+publishUtils.exec(
+  `aws --profile ${args.AWS_PROFILE} s3 sync ${args.OUTPUT_DIR} ${args.S3_PATH}`
+);
 
-shell.rm('-rf', OUTPUT_DIR);
+shell.rm("-rf", args.OUTPUT_DIR);
 
-console.log('=> Storybook deployed to: ${S3_PATH}');
+console.log("=> Storybook deployed to: ${S3_PATH}");
