@@ -135,9 +135,9 @@ shell.cd('..');
 shell.rm('-rf', OUTPUT_DIR);
 
 if (TARGET_BRANCH !== 'gh-pages') {
-  const rawgit_url = GIT_URL.replace('github.com', 'rawgit.com').replace('.git', '/') +
+  const rawGitUrl = GIT_URL.replace('github.com', 'rawgit.com').replace('.git', '').replace(/\/$/ , '') + '/' +
     TARGET_BRANCH + '/index.html';
-  console.log('=> Storybook deployed to: ' + rawgit_url);
+  console.log('=> Storybook deployed to: ' + rawGitUrl);
 } else {
   console.log('=> Storybook deployed to: ' + publishUtils.getGHPagesUrl(GIT_URL));
 }
