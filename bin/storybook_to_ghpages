@@ -30,6 +30,10 @@ build(
   args.MONOREPO_INDEX_GENERATOR
 );
 
+if (args.DRY_RUN) {
+  return;
+}
+
 // go to the out directory and create a *new* Git repo
 shell.cd(args.OUTPUT_DIR);
 publishUtils.exec('git init');

@@ -24,6 +24,10 @@ build(
   args.MONOREPO_INDEX_GENERATOR
 );
 
+if (args.DRY_RUN) {
+  return;
+}
+
 console.log('=> Deploying storybook');
 publishUtils.exec(
   `aws --profile ${args.AWS_PROFILE} s3 sync ${args.OUTPUT_DIR} ${args.S3_PATH}`
