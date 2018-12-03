@@ -9,12 +9,13 @@ Install Storybook Deployer with:
 ```
 npm i @storybook/storybook-deployer --save-dev
 ```
+
 Then add a NPM script like this:
 
 ```json
 {
   "scripts": {
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages"
   }
 }
 ```
@@ -28,7 +29,7 @@ If you customize the build configuration with some additional params (like stati
 ```json
 {
   "scripts": {
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -s public"
   }
 }
 ```
@@ -61,7 +62,7 @@ npm run deploy-storybook -- --packages packages
 
 ### Customize Monorepo `index.html`
 
-To customize the monorepo `index.html` you can pass the `packages` flag to `deploy-storybook`. This function will receive the following arguments:
+To customize the monorepo `index.html` you can pass the `monorepo-index-generator` flag to `deploy-storybook`. This file should export a function that receive the following arguments and returns the html for the page.
 
 - an array of all the `package.json` data from the loaded storybooks as the first argument
 - the output directory
@@ -120,11 +121,13 @@ npm run deploy-storybook -- --remote=upstream
 ```
 
 Or, to specify a target branch and serve your storybook with rawgit instead of gh-pages:
+
 ```sh
 npm run deploy-storybook -- --branch=feature-branch
 ```
 
 Or, to specify a source branch other than `master`, pass a `--source-branch` flag to `npm run deploy-storybook`:
+
 ```sh
 npm run deploy-storybook -- --source-branch=release
 ```
