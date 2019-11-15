@@ -12,7 +12,7 @@ module.exports.exec = function exec(command) {
   }
 
   throw new Error(
-    `Exec code(${ref.code}) on executing: ${command}\n${shell.stderr}`
+    `Exec code(${ref.code}) on executing: ${command}\n${ref.stderr}`
   );
 };
 
