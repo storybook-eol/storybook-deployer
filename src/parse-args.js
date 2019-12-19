@@ -6,7 +6,7 @@ const defaultConfig = {
   commitMessage: 'Deploy Storybook to GitHub Pages'
 };
 
-const argv = yargs
+const { argv } = yargs
   .wrap(yargs.terminalWidth())
   .option('help', {
     alias: 'h',
@@ -80,7 +80,11 @@ const argv = yargs
   .option('bucket-path', {
     desc: 'AWS bucket path to use for publishing',
     type: 'string'
-  }).argv;
+  })
+  .option('s3-sync-options', {
+    desc: 'Additional options to pass to AWSCLI s3 sync',
+    type: 'string'
+  });
 
 module.exports = packageJson => {
   const HOST_TOKEN_ENV_VARIABLE = argv['host-token-env-variable'] || 'GH_TOKEN';
@@ -109,6 +113,7 @@ module.exports = packageJson => {
     // AWS Variables
     AWS_PROFILE: argv['aws-profile'] || 'default',
     BUCKET_PATH: argv['bucket-path'],
-    S3_PATH: 's3://' + argv['bucket-path']
+    S3_PATH: 's3://' + argv['bucket-path'],
+    S3_SYNC_OPTIONS: argv['s3-sync-options'],
   };
 };
