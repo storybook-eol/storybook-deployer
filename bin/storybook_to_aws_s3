@@ -30,7 +30,7 @@ if (args.DRY_RUN) {
 
 console.log('=> Deploying storybook');
 publishUtils.exec(
-  `aws --profile ${args.AWS_PROFILE} s3 sync ${args.OUTPUT_DIR} ${args.S3_PATH} ${args.S3_SYNC_OPTIONS}`
+  `aws --profile ${args.AWS_PROFILE} s3 sync ${args.OUTPUT_DIR} ${args.S3_PATH} ${args.S3_SYNC_OPTIONS || ''}`
 );
 
 shell.rm('-rf', args.OUTPUT_DIR);
