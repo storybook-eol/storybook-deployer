@@ -10,6 +10,11 @@ module.exports.exec = function exec(command) {
   if (ref.code === 0) {
     return ref.stdout.trim();
   }
+  
+  // If the failed shell exec has meaningful error output, do not bury it:
+  if (ref.stderr.trim()) {
+    console.error(ref.stderr);
+  }
 
   throw new Error(
     `Exec code(${ref.code}) on executing: ${command}\n${shell.stderr}`
