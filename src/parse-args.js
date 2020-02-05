@@ -73,7 +73,8 @@ const argv = yargs
   })
   // AWS Variables
   .option('aws-profile', {
-    desc: 'AWS profile to use for publishing',
+    desc:
+      'AWS profile to use for publishing. Use NONE to exclude the --profile flag.',
     type: 'string',
     default: 'default'
   })

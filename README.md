@@ -4,6 +4,7 @@ This is a simple tool allows you to deploy your Storybook into a static hosting 
 
 ```sh
 $ storybook-to-ghpages --help
+$ storybook-to-aws-s3 --help
 
 Options:
   --help, -h                      Show help.                                             [boolean]
@@ -21,7 +22,8 @@ Options:
   --branch                        Git branch to push to             [string] [default: "gh-pages"]
   --source-branch                 Source branch to push from          [string] [default: "master"]
   --host-token-env-variable, -t   Github token for CI publish       [string] [default: "GH_TOKEN"]
-  --aws-profile                   AWS profile to use for publishing  [string] [default: "default"]
+  --aws-profile                   AWS profile to use for publishing. Use NONE to use no profile
+                                  at all instead of "default".       [string] [default: "default"]
   --bucket-path                   AWS bucket path to use for publishing                   [string]
 ```
 
@@ -182,3 +184,7 @@ You must specify a bucket path with `bucket-path` option: `my-bucket-name/path/t
 You can change the aws profile used to run the command with the `aws-profile` option.
 
 example: `storybook-to-aws-s3 --bucket-path=my-bucket-name/path/to/destination-folder-in-bucket --aws-profile=myprofile`
+
+You can exclude the aws profile by setting this flag to "NONE":
+
+example: `storybook-to-aws-s3 --bucket-path=my-bucket-name/path/to/destination-folder-in-bucket --aws-profile=NONE`
