@@ -1,5 +1,11 @@
 # Change Log
 
+### v2.8.2
+
+21-Feb-2020
+
+- Allow no aws profile via `--aws-profile=NONE`
+
 ### v1.2.0
 
 09-Sep-2016
