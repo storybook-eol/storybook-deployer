@@ -183,8 +183,19 @@ You must specify a bucket path with `bucket-path` option: `my-bucket-name/path/t
 
 You can change the aws profile used to run the command with the `aws-profile` option.
 
-example: `storybook-to-aws-s3 --bucket-path=my-bucket-name/path/to/destination-folder-in-bucket --aws-profile=myprofile`
+```sh
+storybook-to-aws-s3 --bucket-path=my-bucket-name/path/to/destination-folder-in-bucket --aws-profile=myprofile
+```
 
 You can exclude the aws profile by setting this flag to "NONE":
 
-example: `storybook-to-aws-s3 --bucket-path=my-bucket-name/path/to/destination-folder-in-bucket --aws-profile=NONE`
+```sh
+storybook-to-aws-s3 --bucket-path=my-bucket-name/path/to/destination-folder-in-bucket --aws-profile=NONE
+```
+
+You can provide arbitrary S3 sync options via the `--s3-sync-options` flag:
+
+```sh
+storybook-to-aws-s3 --bucket-path=bucket-name/bucket-path --s3-sync-options=--acl=public-read
+storybook-to-aws-s3 --bucket-path=bucket-name/bucket-path --s3-sync-options="--acl=public-read --quiet"
+```
