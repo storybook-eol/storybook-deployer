@@ -35,7 +35,7 @@ const awsProfile =
 
 console.log('=> Deploying storybook');
 publishUtils.exec(
-  `aws ${awsProfile} s3 sync ${args.OUTPUT_DIR} ${args.S3_PATH}`
+  `aws ${awsProfile} s3 sync ${args.OUTPUT_DIR} ${args.S3_PATH} ${args.S3_SYNC_OPTIONS || ''}`
 );
 
 shell.rm('-rf', args.OUTPUT_DIR);
