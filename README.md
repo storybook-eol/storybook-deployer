@@ -25,6 +25,7 @@ Options:
   --aws-profile                   AWS profile to use for publishing. Use NONE to use no profile
                                   at all instead of "default".       [string] [default: "default"]
   --bucket-path                   AWS bucket path to use for publishing                   [string]
+  --s3-sync-options               Additional options to pass to AWSCLI s3 sync            [string]
 ```
 
 ## Getting Started
