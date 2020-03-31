@@ -59,7 +59,7 @@ console.log('=> Deploying storybook');
 if (args.CI_DEPLOY) {
   const { host, repository } = parseRepo(GIT_URL);
 
-  if (host === 'github.com' && args.HOST_TOKEN) {
+  if (args.HOST_TOKEN) {
     GIT_URL = `https://${args.HOST_TOKEN}@${host}/${repository}`;
   }
 }
