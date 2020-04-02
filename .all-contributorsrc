@@ -59,6 +59,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "nkov",
+      "name": "nkov",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3165749?v=4",
+      "profile": "https://github.com/nkov",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
