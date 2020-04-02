@@ -49,6 +49,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "jsonunger",
+      "name": "Jason Unger",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/16748392?v=4",
+      "profile": "http://www.jsonunger.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
