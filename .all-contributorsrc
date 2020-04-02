@@ -29,6 +29,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "ndelangen",
+      "name": "Norbert de Langen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3070389?v=4",
+      "profile": "https://github.com/ndelangen",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
