@@ -97,6 +97,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "travisbloom",
+      "name": "Travis Bloom",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1258114?v=4",
+      "profile": "http://travisbloom.me",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
