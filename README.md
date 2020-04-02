@@ -220,6 +220,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="http://patrickmriley.net"><img src="https://avatars2.githubusercontent.com/u/4237045?v=4" width="100px;" alt=""/><br /><sub><b>Patrick Riley</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=priley86" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=priley86" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/jeanlucc"><img src="https://avatars0.githubusercontent.com/u/6769926?v=4" width="100px;" alt=""/><br /><sub><b>jeanlucc</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=jeanlucc" title="Code">💻</a></td>
   </tr>
 </table>
 
