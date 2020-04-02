@@ -200,3 +200,43 @@ You can provide arbitrary S3 sync options via the `--s3-sync-options` flag:
 storybook-to-aws-s3 --bucket-path=bucket-name/bucket-path --s3-sync-options=--acl=public-read
 storybook-to-aws-s3 --bucket-path=bucket-name/bucket-path --s3-sync-options="--acl=public-read --quiet"
 ```
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://hipstersmoothie.com"><img src="https://avatars3.githubusercontent.com/u/1192452?v=4" width="100px;" alt=""/><br /><sub><b>Andrew Lisowski</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=hipstersmoothie" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=hipstersmoothie" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://arunoda.me"><img src="https://avatars1.githubusercontent.com/u/50838?v=4" width="100px;" alt=""/><br /><sub><b>Arunoda Susiripala</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=arunoda" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=arunoda" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/ndelangen"><img src="https://avatars2.githubusercontent.com/u/3070389?v=4" width="100px;" alt=""/><br /><sub><b>Norbert de Langen</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=ndelangen" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=ndelangen" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://dandean.com"><img src="https://avatars3.githubusercontent.com/u/18332?v=4" width="100px;" alt=""/><br /><sub><b>Dan Dean</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=dandean" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=dandean" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://www.jsonunger.com"><img src="https://avatars1.githubusercontent.com/u/16748392?v=4" width="100px;" alt=""/><br /><sub><b>Jason Unger</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=jsonunger" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=jsonunger" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/nkov"><img src="https://avatars3.githubusercontent.com/u/3165749?v=4" width="100px;" alt=""/><br /><sub><b>nkov</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=nkov" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=nkov" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/tsargent"><img src="https://avatars3.githubusercontent.com/u/173215?v=4" width="100px;" alt=""/><br /><sub><b>Tyler Sargent</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=tsargent" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://patrickmriley.net"><img src="https://avatars2.githubusercontent.com/u/4237045?v=4" width="100px;" alt=""/><br /><sub><b>Patrick Riley</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=priley86" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=priley86" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/jeanlucc"><img src="https://avatars0.githubusercontent.com/u/6769926?v=4" width="100px;" alt=""/><br /><sub><b>jeanlucc</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=jeanlucc" title="Code">💻</a></td>
+    <td align="center"><a href="http://travisbloom.me"><img src="https://avatars1.githubusercontent.com/u/1258114?v=4" width="100px;" alt=""/><br /><sub><b>Travis Bloom</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=travisbloom" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/stof"><img src="https://avatars0.githubusercontent.com/u/439401?v=4" width="100px;" alt=""/><br /><sub><b>Christophe Coevoet</b></sub></a><br /><a href="#maintenance-stof" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://shilman.net"><img src="https://avatars2.githubusercontent.com/u/488689?v=4" width="100px;" alt=""/><br /><sub><b>Michael Shilman</b></sub></a><br /><a href="#maintenance-shilman" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/jaebradley"><img src="https://avatars0.githubusercontent.com/u/8136030?v=4" width="100px;" alt=""/><br /><sub><b>Jae Bradley</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=jaebradley" title="Code">💻</a></td>
+    <td align="center"><a href="https://bryce.io/"><img src="https://avatars1.githubusercontent.com/u/3171252?v=4" width="100px;" alt=""/><br /><sub><b>Bryce Dorn</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/issues?q=author%3Abrycedorn" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/baopham"><img src="https://avatars3.githubusercontent.com/u/783410?v=4" width="100px;" alt=""/><br /><sub><b>Bao Pham</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=baopham" title="Code">💻</a></td>
+    <td align="center"><a href="https://encoredevlabs.com"><img src="https://avatars1.githubusercontent.com/u/498669?v=4" width="100px;" alt=""/><br /><sub><b>Ankur Patel</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=ankurp" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ZitaNemeckova"><img src="https://avatars2.githubusercontent.com/u/9210860?v=4" width="100px;" alt=""/><br /><sub><b>ZitaNemeckova</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=ZitaNemeckova" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
