@@ -78,6 +78,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "priley86",
+      "name": "Patrick Riley",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4237045?v=4",
+      "profile": "http://patrickmriley.net",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7

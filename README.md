@@ -218,6 +218,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/nkov"><img src="https://avatars3.githubusercontent.com/u/3165749?v=4" width="100px;" alt=""/><br /><sub><b>nkov</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=nkov" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=nkov" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/tsargent"><img src="https://avatars3.githubusercontent.com/u/173215?v=4" width="100px;" alt=""/><br /><sub><b>Tyler Sargent</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=tsargent" title="Documentation">📖</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="http://patrickmriley.net"><img src="https://avatars2.githubusercontent.com/u/4237045?v=4" width="100px;" alt=""/><br /><sub><b>Patrick Riley</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=priley86" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=priley86" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
