@@ -19,6 +19,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "arunoda",
+      "name": "Arunoda Susiripala",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/50838?v=4",
+      "profile": "https://arunoda.me",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7

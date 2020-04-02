@@ -211,6 +211,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://hipstersmoothie.com"><img src="https://avatars3.githubusercontent.com/u/1192452?v=4" width="100px;" alt=""/><br /><sub><b>Andrew Lisowski</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=hipstersmoothie" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=hipstersmoothie" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://arunoda.me"><img src="https://avatars1.githubusercontent.com/u/50838?v=4" width="100px;" alt=""/><br /><sub><b>Arunoda Susiripala</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=arunoda" title="Code">💻</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=arunoda" title="Documentation">📖</a></td>
   </tr>
 </table>
 
