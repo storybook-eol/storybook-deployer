@@ -133,6 +133,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "brycedorn",
+      "name": "Bryce Dorn",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3171252?v=4",
+      "profile": "https://bryce.io/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7
