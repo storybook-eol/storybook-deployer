@@ -231,12 +231,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/baopham"><img src="https://avatars3.githubusercontent.com/u/783410?v=4" width="100px;" alt=""/><br /><sub><b>Bao Pham</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=baopham" title="Code">💻</a></td>
     <td align="center"><a href="https://encoredevlabs.com"><img src="https://avatars1.githubusercontent.com/u/498669?v=4" width="100px;" alt=""/><br /><sub><b>Ankur Patel</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=ankurp" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ZitaNemeckova"><img src="https://avatars2.githubusercontent.com/u/9210860?v=4" width="100px;" alt=""/><br /><sub><b>ZitaNemeckova</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=ZitaNemeckova" title="Code">💻</a></td>
+    <td align="center"><a href="http://lucasms.net"><img src="https://avatars3.githubusercontent.com/u/868687?v=4" width="100px;" alt=""/><br /><sub><b>Lucas Machado</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=luksm" title="Code">💻</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

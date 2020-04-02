@@ -169,6 +169,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "luksm",
+      "name": "Lucas Machado",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/868687?v=4",
+      "profile": "http://lucasms.net",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
