@@ -39,6 +39,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "dandean",
+      "name": "Dan Dean",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/18332?v=4",
+      "profile": "https://dandean.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
