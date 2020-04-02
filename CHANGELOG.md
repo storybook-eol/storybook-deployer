@@ -1,3 +1,19 @@
+# v2.8.5 (Thu Apr 02 2020)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Fraser Killip ([@FraserKillip](https://github.com/FraserKillip)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Remove check for Github.com when using an access token [#80](https://github.com/storybookjs/storybook-deployer/pull/80) ([@FraserKillip](https://github.com/FraserKillip))
+
+#### Authors: 1
+
+- Fraser Killip ([@FraserKillip](https://github.com/FraserKillip))
+
+---
+
 # v2.8.4 (Thu Apr 02 2020)
 
 :tada: This release contains work from a new contributor! :tada:
