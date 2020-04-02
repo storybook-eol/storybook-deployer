@@ -106,6 +106,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "stof",
+      "name": "Christophe Coevoet",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/439401?v=4",
+      "profile": "https://github.com/stof",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7
