@@ -115,6 +115,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "shilman",
+      "name": "Michael Shilman",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/488689?v=4",
+      "profile": "http://shilman.net",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7
