@@ -1,3 +1,28 @@
+# v2.8.4 (Thu Apr 02 2020)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Lucas Machado ([@luksm](https://github.com/luksm)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: Updating git-url-parser [#68](https://github.com/storybookjs/storybook-deployer/pull/68) ([@luksm](https://github.com/luksm))
+
+#### ⚠️  Pushed to `master`
+
+- update lock file ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🏠 Internal
+
+- Add automated releases and contributors [#81](https://github.com/storybookjs/storybook-deployer/pull/81) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Lucas Machado ([@luksm](https://github.com/luksm))
+
+---
+
 # Change Log
 
 ### v2.8.2
