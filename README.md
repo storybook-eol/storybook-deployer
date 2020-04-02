@@ -224,6 +224,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://travisbloom.me"><img src="https://avatars1.githubusercontent.com/u/1258114?v=4" width="100px;" alt=""/><br /><sub><b>Travis Bloom</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=travisbloom" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/stof"><img src="https://avatars0.githubusercontent.com/u/439401?v=4" width="100px;" alt=""/><br /><sub><b>Christophe Coevoet</b></sub></a><br /><a href="#maintenance-stof" title="Maintenance">🚧</a></td>
     <td align="center"><a href="http://shilman.net"><img src="https://avatars2.githubusercontent.com/u/488689?v=4" width="100px;" alt=""/><br /><sub><b>Michael Shilman</b></sub></a><br /><a href="#maintenance-shilman" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/jaebradley"><img src="https://avatars0.githubusercontent.com/u/8136030?v=4" width="100px;" alt=""/><br /><sub><b>Jae Bradley</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=jaebradley" title="Code">💻</a></td>
   </tr>
 </table>
 

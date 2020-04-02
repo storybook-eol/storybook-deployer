@@ -124,6 +124,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "jaebradley",
+      "name": "Jae Bradley",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8136030?v=4",
+      "profile": "https://github.com/jaebradley",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
