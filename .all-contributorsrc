@@ -142,6 +142,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "baopham",
+      "name": "Bao Pham",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/783410?v=4",
+      "profile": "https://github.com/baopham",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7

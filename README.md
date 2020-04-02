@@ -227,6 +227,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/jaebradley"><img src="https://avatars0.githubusercontent.com/u/8136030?v=4" width="100px;" alt=""/><br /><sub><b>Jae Bradley</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=jaebradley" title="Code">💻</a></td>
     <td align="center"><a href="https://bryce.io/"><img src="https://avatars1.githubusercontent.com/u/3171252?v=4" width="100px;" alt=""/><br /><sub><b>Bryce Dorn</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/issues?q=author%3Abrycedorn" title="Bug reports">🐛</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/baopham"><img src="https://avatars3.githubusercontent.com/u/783410?v=4" width="100px;" alt=""/><br /><sub><b>Bao Pham</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=baopham" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
