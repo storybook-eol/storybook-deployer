@@ -1,3 +1,19 @@
+# v2.8.6 (Tue May 12 2020)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jeri Sommers ([@sojeri](https://github.com/sojeri)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix yargs-parser & kind-of vulnerabilities [#84](https://github.com/storybookjs/storybook-deployer/pull/84) ([@sojeri](https://github.com/sojeri))
+
+#### Authors: 1
+
+- Jeri Sommers ([@sojeri](https://github.com/sojeri))
+
+---
+
 # v2.8.5 (Thu Apr 02 2020)
 
 :tada: This release contains work from a new contributor! :tada:
