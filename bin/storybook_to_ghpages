@@ -38,6 +38,12 @@ if (args.DRY_RUN) {
 shell.cd(args.OUTPUT_DIR);
 publishUtils.exec('git init');
 
+// if --source-branch specified, it needs to exist in the new repo too
+const { SOURCE_BRANCH } = args;
+if (!!SOURCE_BRANCH) {
+  publishUtils.exec(`git checkout -b ${SOURCE_BRANCH}`);
+}
+
 // inside this git repo we'll pretend to be a new user
 publishUtils.exec(`git config user.name ${JSON.stringify(config.gitUsername)}`);
 publishUtils.exec(`git config user.email ${JSON.stringify(config.gitEmail)}`);
@@ -64,7 +70,7 @@ if (args.CI_DEPLOY) {
   }
 }
 
-const { SOURCE_BRANCH, TARGET_BRANCH } = args;
+const { TARGET_BRANCH } = args;
 
 publishUtils.exec(
   `git push --force --quiet ${GIT_URL} ${SOURCE_BRANCH}:${TARGET_BRANCH}`
