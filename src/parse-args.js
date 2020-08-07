@@ -104,7 +104,7 @@ module.exports = packageJson => {
     PACKAGES_DIRECTORY: argv.packages,
     MONOREPO_INDEX_GENERATOR: argv['monorepo-index-generator'],
     NPM_SCRIPT: argv.script || 'build-storybook',
-    CI_DEPLOY: Boolean(argv.ci),
+    CI_DEPLOY: Boolean(argv.ci) || Boolean(process.env.CI),
     DRY_RUN: Boolean(argv.dryRun),
     // Git Variables
     GIT_REMOTE: argv.remote || 'origin',
@@ -115,6 +115,6 @@ module.exports = packageJson => {
     AWS_PROFILE: argv['aws-profile'] || 'default',
     BUCKET_PATH: argv['bucket-path'],
     S3_PATH: 's3://' + argv['bucket-path'],
-    S3_SYNC_OPTIONS: argv['s3-sync-options'],
+    S3_SYNC_OPTIONS: argv['s3-sync-options']
   };
 };
