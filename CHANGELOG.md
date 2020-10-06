@@ -1,3 +1,19 @@
+# v2.8.7 (Tue Oct 06 2020)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix(deps): bump lodash from 4.17.15 to 4.17.19 [#89](https://github.com/storybookjs/storybook-deployer/pull/89) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### Authors: 1
+
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+---
+
 # v2.8.6 (Tue May 12 2020)
 
 :tada: This release contains work from a new contributor! :tada:
