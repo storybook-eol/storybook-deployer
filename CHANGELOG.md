@@ -1,3 +1,34 @@
+# v2.8.8 (Wed May 12 2021)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+:heart: Jack Howard ([@JackHowa](https://github.com/JackHowa))
+
+#### 🐛 Bug Fix
+
+- fix: make it possible to deploy from SOURCE_BRANCH [#102](https://github.com/storybookjs/storybook-deployer/pull/102) ([@jimmyandrade](https://github.com/jimmyandrade))
+- build: set up codeql analysis [#95](https://github.com/storybookjs/storybook-deployer/pull/95) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### 🔩 Dependency Updates
+
+- fix(deps): bump lodash from 4.17.19 to 4.17.21 [#108](https://github.com/storybookjs/storybook-deployer/pull/108) ([@jimmyandrade](https://github.com/jimmyandrade))
+- fix(deps): bump hosted-git-info from 2.8.5 to 2.8.9 [#109](https://github.com/storybookjs/storybook-deployer/pull/109) ([@jimmyandrade](https://github.com/jimmyandrade))
+- build(deps): bump gitlog from 4.0.3 to 4.0.4 [#106](https://github.com/storybookjs/storybook-deployer/pull/106) ([@jimmyandrade](https://github.com/jimmyandrade))
+- fix(deps): bump y18n from 4.0.0 to 4.0.1 [#105](https://github.com/storybookjs/storybook-deployer/pull/105) ([@jimmyandrade](https://github.com/jimmyandrade))
+- chore(dev-deps): bump ini from 1.3.5 to 1.3.8 [#99](https://github.com/storybookjs/storybook-deployer/pull/99) ([@jimmyandrade](https://github.com/jimmyandrade))
+- chore: Update auto dependencies to ensure no security node-fetch issues [#96](https://github.com/storybookjs/storybook-deployer/pull/96) ([@JackHowa](https://github.com/JackHowa))
+
+#### Authors: 2
+
+- Jack Howard ([@JackHowa](https://github.com/JackHowa))
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+---
+
 # v2.8.7 (Tue Oct 06 2020)
 
 :tada: This release contains work from a new contributor! :tada:
