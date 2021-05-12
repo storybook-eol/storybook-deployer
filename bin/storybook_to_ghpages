@@ -45,6 +45,12 @@ publishUtils.exec(`git config user.email ${JSON.stringify(config.gitEmail)}`);
 // disable GPG signing
 publishUtils.exec('git config commit.gpgsign false');
 
+// check if source branch argument is set, and checkout to it
+if(args.SOURCE_BRANCH) {
+  publishUtils.exec(`git checkout -b ${JSON.stringify(args.SOURCE_BRANCH)}`);
+  console.log(`=> Deploying from source branch: ${JSON.stringify(args.SOURCE_BRANCH)}`);
+}
+
 // The first and only commit to this new Git repo contains all the
 // files present with the commit message "Deploy to GitHub Pages".
 publishUtils.exec('git add .');
