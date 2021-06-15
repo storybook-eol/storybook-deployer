@@ -1,3 +1,19 @@
+# v2.8.10 (Tue Jun 15 2021)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix issue where new repo didn't set matching source branch [#87](https://github.com/storybookjs/storybook-deployer/pull/87) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### Authors: 1
+
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+---
+
 # v2.8.9 (Tue Jun 15 2021)
 
 :tada: This release contains work from a new contributor! :tada:
