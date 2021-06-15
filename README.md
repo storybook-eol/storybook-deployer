@@ -243,6 +243,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://lucasms.net"><img src="https://avatars3.githubusercontent.com/u/868687?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Machado</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=luksm" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/sojeri"><img src="https://avatars3.githubusercontent.com/u/10818509?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeri Sommers</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=sojeri" title="Code">💻</a></td>
     <td align="center"><a href="http://jimmyandrade.com/"><img src="https://avatars.githubusercontent.com/u/2307245?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jimmy Andrade</b></sub></a><br /><a href="#infra-jimmyandrade" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://nickthesick.com/"><img src="https://avatars.githubusercontent.com/u/1852538?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nick Perez</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=nperez0111" title="Documentation">📖</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=nperez0111" title="Code">💻</a></td>
   </tr>
 </table>
 

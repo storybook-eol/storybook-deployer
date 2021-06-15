@@ -196,6 +196,16 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "nperez0111",
+      "name": "Nick Perez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1852538?v=4",
+      "profile": "https://nickthesick.com/",
+      "contributions": [
+        "doc",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
