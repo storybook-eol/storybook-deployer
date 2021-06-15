@@ -1,3 +1,24 @@
+# v2.8.9 (Tue Jun 15 2021)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: automatically use CI mode if CI env variable is present [#94](https://github.com/storybookjs/storybook-deployer/pull/94) ([@jimmyandrade](https://github.com/jimmyandrade))
+- docs: add `npx` instructions to README.md [#110](https://github.com/storybookjs/storybook-deployer/pull/110) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### 🔩 Dependency Updates
+
+- build(deps): bump glob-parent from 5.1.1 to 5.1.2 [#111](https://github.com/storybookjs/storybook-deployer/pull/111) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### Authors: 1
+
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+---
+
 # v2.8.8 (Wed May 12 2021)
 
 :tada: This release contains work from new contributors! :tada:
