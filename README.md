@@ -126,6 +126,8 @@ npm run deploy-storybook -- --monorepo-index-generator my-custom-generator.js
 
 To deploy Storybook as part of a CI step, pass the `ci` flag to `npm run deploy-storybook`.
 
+If the `CI` environment variable is set then this mode will be assumed, therefore no need to specify the `ci` flag.
+
 Because pushing to GitHub as part of a CI step requires a [personal access token](https://github.com/blog/1509-personal-api-tokens), Storybook uses the `GH_TOKEN` environment variable, by default, to authenticate GitHub pushes.
 
 This environment variable name can be configured via the `host-token-env-variable` flag.
