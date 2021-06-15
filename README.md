@@ -58,6 +58,13 @@ or like this for AWS S3:
 
 Then you can run `npm run deploy-storybook` to deploy the Storybook.
 
+Alternatively, you can execute Storybook Deployer directly using `npx`
+
+```sh
+npx -p @storybook/storybook-deployer storybook-to-ghpages
+npx -p @storybook/storybook-deployer storybook-to-aws-s3
+```
+
 ### Custom Build Configuration
 
 If you customize the build configuration with some additional params (like static file directory), then you need to expose another NPM script like this:
