@@ -1,3 +1,28 @@
+# v2.8.11 (Mon Mar 21 2022)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: Mitchell  ([@mitchiemt11](https://github.com/mitchiemt11))
+
+:heart: Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### 🐛 Bug Fix
+
+- Update README.md [#117](https://github.com/storybookjs/storybook-deployer/pull/117) ([@mitchiemt11](https://github.com/mitchiemt11))
+
+#### 🔩 Dependency Updates
+
+- build(deps): bump path-parse from 1.0.6 to 1.0.7 [#113](https://github.com/storybookjs/storybook-deployer/pull/113) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### Authors: 2
+
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+- Mitchell  ([@mitchiemt11](https://github.com/mitchiemt11))
+
+---
+
 # v2.8.10 (Tue Jun 15 2021)
 
 :tada: This release contains work from a new contributor! :tada:
