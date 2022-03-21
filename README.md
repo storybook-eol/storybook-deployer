@@ -245,6 +245,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://jimmyandrade.com/"><img src="https://avatars.githubusercontent.com/u/2307245?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jimmy Andrade</b></sub></a><br /><a href="#infra-jimmyandrade" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=jimmyandrade" title="Documentation">📖</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=jimmyandrade" title="Code">💻</a></td>
     <td align="center"><a href="https://nickthesick.com/"><img src="https://avatars.githubusercontent.com/u/1852538?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nick Perez</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=nperez0111" title="Documentation">📖</a> <a href="https://github.com/storybookjs/storybook-deployer/commits?author=nperez0111" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/mitchiemt11"><img src="https://avatars.githubusercontent.com/u/74592107?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mitchell </b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=mitchiemt11" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
