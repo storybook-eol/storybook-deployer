@@ -103,7 +103,7 @@ npm run deploy-storybook -- --dry-run
 
 ### Deploy a Monorepo
 
-If you manage a monorepo with multiple storybooks you can you pass the `packages` flag to `deploy-storybook` to scan a directory for `package.json`s.
+If you manage a monorepo with multiple storybooks you can pass the `packages` flag to `deploy-storybook` to scan a directory for `package.json`s.
 
 The following command will search the `packages` directory for packages. It will also generate a default `index.html` that links to all of the loaded storybooks.
 
