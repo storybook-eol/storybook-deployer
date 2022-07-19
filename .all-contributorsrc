@@ -217,6 +217,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "erlendmiljo",
+      "name": "erlendmiljo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/102804921?v=4",
+      "profile": "https://github.com/erlendmiljo",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
