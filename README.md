@@ -144,6 +144,18 @@ Or if your access token is stored in the `GITHUB_TOKEN` environment variable
 npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
 ```
 
+### Deploying Storybook to GitHub Pages as part of a GitHub Action
+
+If you are deploying Storybook to GitHub Pages from a repository belonging to an organization account on GitHub, you may need to specify a ```${{ github.actor }}``` in addition to the ```${{ secrets.GITHUB_TOKEN }}``` for your build step to be able to authenticate properly.
+
+For instance:
+```
+- name: Deploy storybook to GitHub Pages
+  run: npm run deploy-storybook -- --ci
+  env:
+    GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+```
+
 ### Custom deploy configuration
 
 If you want to customize Git username, email or commit message, add this to `package.json`:
