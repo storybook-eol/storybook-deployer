@@ -1,3 +1,24 @@
+# v2.8.12 (Tue Jul 19 2022)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- docs: update README.md [#121](https://github.com/storybookjs/storybook-deployer/pull/121) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### 🔩 Dependency Updates
+
+- build(deps): bump shelljs from 0.8.3 to 0.8.5 [#115](https://github.com/storybookjs/storybook-deployer/pull/115) ([@jimmyandrade](https://github.com/jimmyandrade))
+- build: bump async from 3.2.0 to 3.2.4 [#122](https://github.com/storybookjs/storybook-deployer/pull/122) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### Authors: 1
+
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+---
+
 # v2.8.11 (Mon Mar 21 2022)
 
 :tada: This release contains work from new contributors! :tada:
