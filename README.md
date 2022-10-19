@@ -260,6 +260,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/mitchiemt11"><img src="https://avatars.githubusercontent.com/u/74592107?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mitchell </b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=mitchiemt11" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/erlendmiljo"><img src="https://avatars.githubusercontent.com/u/102804921?v=4?s=100" width="100px;" alt=""/><br /><sub><b>erlendmiljo</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=erlendmiljo" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/georgewrmarshall"><img src="https://avatars.githubusercontent.com/u/8112138?v=4?s=100" width="100px;" alt=""/><br /><sub><b>George Marshall</b></sub></a><br /><a href="https://github.com/storybookjs/storybook-deployer/commits?author=georgewrmarshall" title="Code">💻</a></td>
   </tr>
 </table>
 

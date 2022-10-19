@@ -226,6 +226,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "georgewrmarshall",
+      "name": "George Marshall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8112138?v=4",
+      "profile": "https://github.com/georgewrmarshall",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
