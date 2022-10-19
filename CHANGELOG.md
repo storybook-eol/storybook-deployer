@@ -64,6 +64,28 @@ Thank you, Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade)), for
 
 ---
 
+# v2.8.13 (Wed Oct 19 2022)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix(deps): Upgrading git-url-parse fixing vulnerability [#127](https://github.com/storybookjs/storybook-deployer/pull/127) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### 🔩 Dependency Updates
+
+- build(deps): bump ajv from 6.12.0 to 6.12.6 [#116](https://github.com/storybookjs/storybook-deployer/pull/116) ([@jimmyandrade](https://github.com/jimmyandrade))
+- build(deps): bump ansi-regex from 5.0.0 to 5.0.1 [#118](https://github.com/storybookjs/storybook-deployer/pull/118) ([@jimmyandrade](https://github.com/jimmyandrade))
+- build(deps): bump minimist from 1.2.5 to 1.2.6 [#119](https://github.com/storybookjs/storybook-deployer/pull/119) ([@jimmyandrade](https://github.com/jimmyandrade))
+
+#### Authors: 1
+
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+---
+
 # v2.8.12 (Tue Jul 19 2022)
 
 :tada: This release contains work from a new contributor! :tada:
