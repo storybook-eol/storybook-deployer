@@ -26,7 +26,7 @@
     "url": "git+https://github.com/storybooks/storybook-deployer.git"
   },
   "dependencies": {
-    "git-url-parse": "^12.0.0",
+    "git-url-parse": "^13.1.0",
     "glob": "^7.1.3",
     "parse-repo": "^1.0.4",
     "shelljs": "^0.8.1",
